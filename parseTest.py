@@ -77,10 +77,10 @@ def file_parse(file):
                     #get rid of the subheader (Ex: Property Tax and only keep numericals)
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(nextLine, "")
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "")
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("$", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("-", "0")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "-")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
 
                     #Split numerical data by , based on space space
                     row = fullPagetext[lineIndex+1].split()
@@ -89,10 +89,10 @@ def file_parse(file):
                 else:
                     pageHeader = fullPagetext[lineIndex].split("   ")[0]
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "")
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("$", "")
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("-", "0")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "-")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
                     row = fullPagetext[lineIndex].split()
                     
                     FINAL_DATA.append(dfLine(date, county, header, pageHeader, row[len(row) - 4], row[len(row) - 3], row[len(row) - 2]))
@@ -105,10 +105,10 @@ def file_parse(file):
                     pageHeader = fullPagetext[lineIndex].split("   ")[0] + " " + nextLine
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(nextLine, "")
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "")
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("$", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("-", "0")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "-")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
 
                     row = fullPagetext[lineIndex+1].split()
                     
@@ -117,10 +117,10 @@ def file_parse(file):
                 else:
                     pageHeader = fullPagetext[lineIndex].split("   ")[0]
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "")
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("$", "")
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("-", "0")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "-")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
                     
                     row = fullPagetext[lineIndex].split()
                    
@@ -134,10 +134,11 @@ def file_parse(file):
                     pageHeader = fullPagetext[lineIndex].split("   ")[0] + " " + nextLine
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(nextLine, "")
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "")
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("$", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("-", "0")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "-")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
+
                     row = fullPagetext[lineIndex+1].split()
                     
                     FINAL_DATA.append(dfLine(date, county, header, pageHeader, row[len(row) - 4], row[len(row) - 3], row[len(row) - 2]))
@@ -145,10 +146,10 @@ def file_parse(file):
                 else:
                     pageHeader = fullPagetext[lineIndex].split("   ")[0]
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "")
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("$", "")
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("-", "0")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "-")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
 
                     row = fullPagetext[lineIndex].split()
                    
@@ -162,10 +163,11 @@ def file_parse(file):
                     pageHeader = fullPagetext[lineIndex].split("   ")[0] + " " + nextLine
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(nextLine, "")
                     #get rid of ( ) and $
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "")
-                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("$", "")
                     fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("-", "0")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace("(", "-")
+                    fullPagetext[lineIndex+1] = fullPagetext[lineIndex+1].replace(")", "")
+
 
                     row = fullPagetext[lineIndex+1].split()
                     
@@ -173,14 +175,13 @@ def file_parse(file):
                     lineIndex += 1
                 else:
                     pageHeader = fullPagetext[lineIndex].split("   ")[0]
-                    #get rid of ( ) and $
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "")
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
-                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("$", "")
+                    #get rid of ( ) with - and $ with empty
                     fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("-", "0")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("$", "")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace("(", "-")
+                    fullPagetext[lineIndex] = fullPagetext[lineIndex].replace(")", "")
 
                     row = fullPagetext[lineIndex].split()
-                   
                     FINAL_DATA.append(dfLine(date, county, header, pageHeader, row[len(row) - 4], row[len(row) - 3], row[len(row) - 2]))
                     
             #Move to the next line
