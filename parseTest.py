@@ -192,10 +192,10 @@ def conv_to_csv(FINAL_DATA):
     df = pd.DataFrame(FINAL_DATA)
     df.columns = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER', 'GOV_ACTIVITIES', 'BUS_ACTIVITY', 'TOTAL']
 
-    for col in df.columns[-3: ]:
-        df[col] = df[col].map(lambda x: float(str(x).replace(',', '')))
+    """ for col in df.columns[-3: ]:
+        df[col] = df[col].map(lambda x: float(str(x).replace(',', ''))) """
     saveCSVfilepath = r'./parseRESULT.csv'
-    df.to_csv(saveCSVfilepath, index=False, header=True)
+    df.to_csv(saveCSVfilepath, index=False)
     print("\n\nMESSAGE: Your csv file is ready, go to " + saveCSVfilepath + " to take a look at!")
     return saveCSVfilepath
 
