@@ -1,7 +1,33 @@
-DATE,COUNTY,PAGE_HEADER,SUB_DATA_HEADER,EXPENSES,CHARGES_FOR_SERVICES,OPERATING GRANTS AND CONTRIBUTIONS,CAPITAL GRANTS AND CONTRIBUTIONS,GOV_ACTIVITIES,BUS_ACTIVITY,TOTAL
-"Year Ended December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total governmental activities,"280,949,295","38,821,635","117,634,087","8,126",,,
-"Year Ended December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total business-type activities,"965,062","3,085,453",0,0,,,
-"Year Ended December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total primary government $,"281,914,357","41,907,088","117,634,087","8,126",,,
-"December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Property taxes,,,,,"95,783,385",0,"95,783,385"
-"December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total general revenues and transfers,,,,,"117,097,430","-2,340,094","114,757,336"
-"December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Change in net position,,,,,"-7,388,017","-219,703","-7,607,720"
+DATE,COUNTY,PAGE_HEADER,SUB_DATA_HEADER,GOV_ACTIVITIES,BUS_ACTIVITY,TOTAL,EXPENSES,CHARGES_FOR_SERVICES,OPERATING GRANTS AND CONTRIBUTIONS,CAPITAL GRANTS AND CONTRIBUTIONS,Business-type Activities - Enterprise Funds - TOTAL
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Cash and pooled investments - ASSETS,"124,718,426","14,578,257","139,296,683",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Capital assets not being depreciated - ASSETS,"61,169,877",0,"61,169,877",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,"Capital assets being depreciated, net - ASSETS","149,398,291","11,202","149,409,493",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Total assets - ASSETS,"402,417,448","28,438,719","430,856,167",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Long-term debt: Due within one year - LIABILITIES,"14,368,326","10,018,972","24,387,298",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Long-term debt: Due in more than one year - LIABILITIES,"36,400,026","4,833,353","41,233,379",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Net pension liability (noncurrent due in one year) - LIABILITIES,"152,820,834",0,"152,820,834",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Net other postemployment benefits liability,"128,116,823",0,"128,116,823",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Total liabilities,"356,535,559","15,196,213","371,731,772",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Net investment in capital assets - NET POSITION,"181,945,187","11,202","181,956,389",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Unrestricted (deficit) - NET POSITION,"-185,585,583",0,"-185,585,583",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Statement of Net Position,Total net position,"44,915,610","13,242,506","58,158,116",,,,,
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total governmental activities,,,,"280,949,295","38,821,635","117,634,087","8,126",
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total business-type activities,,,,"965,062","3,085,453",0,0,
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total primary government $,,,,"281,914,357","41,907,088","117,634,087","8,126",
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Property taxes,"95,783,385",0,"95,783,385",,,,,
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Grants and contributions not restricted to specific programs,"10,261,382",0,"10,261,382",,,,,
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Total general revenues and transfers,"117,097,430","-2,340,094","114,757,336",,,,,
+" December 31, 2018",WASHTENAW COUNTY,Statement of Activities,Change in net position,"-7,388,017","-219,703","-7,607,720",,,,,
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Cash and pooled investments,,,,,,,,"14,578,257"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,"Noncurrent assets - capital assets, net",,,,,,,,"11,202"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Total assets,,,,,,,,"28,438,719"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Total current liabilities,,,,,,,,"10,362,860"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Total noncurrent liabilities,,,,,,,,"4,833,353"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Total liabilities,,,,,,,,"15,196,213"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Investment in capital assets,,,,,,,,"11,202"
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Unrestricted,,,,,,,,0
+"December 31, 2018",WASHTENAW COUNTY,Proprietary Funds - Statement of Net Position,Total net position,,,,,,,,"13,242,506"
+" December 31, 2018",WASHTENAW COUNTY,"Proprietary Funds - Statement of Revenues, Expenses and Changes in Fund Net Position",Total operating revenues,,,,,,,,"3,085,453"
+" December 31, 2018",WASHTENAW COUNTY,"Proprietary Funds - Statement of Revenues, Expenses and Changes in Fund Net Position",Total operating expenses,,,,,,,,"665,912"
+" December 31, 2018",WASHTENAW COUNTY,"Proprietary Funds - Statement of Revenues, Expenses and Changes in Fund Net Position",Total nonoperating revenues,,,,,,,,"112,325"
+" December 31, 2018",WASHTENAW COUNTY,"Proprietary Funds - Statement of Revenues, Expenses and Changes in Fund Net Position",Change in net position,,,,,,,,"-219,703"

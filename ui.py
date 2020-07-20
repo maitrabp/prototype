@@ -10,8 +10,7 @@ def browse_button():
 
 def run_prog():
     # This is your function maitra use the folder_path variable to get filename
-    result = file_parse(file_path)
-    saveCSVfilepath = conv_to_csv(result)
+    saveCSVfilepath = file_parse(file_path)
     finish_msg = StringVar()
     lbl2 = Label(master = root, textvariable=finish_msg)
     finish_msg.set("MESSAGE: Your csv file is ready, go to " + saveCSVfilepath + " to take a look at!")
