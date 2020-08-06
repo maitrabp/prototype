@@ -1,7 +1,0 @@
-STEP1: Python installation
-
-https://www.youtube.com/watch?v=4Rx_JRkwAjY
-
-STEP2: TYPE THESE COMMANDS (ONE AFTER THE OTHER) IN YOUR WINDOWS POWERSHELL AFTER YOU'VE INSTALLED PYTHON
-pip install pdfminer
-pip install pandas
