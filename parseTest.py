@@ -15,12 +15,6 @@ requiredSuppInfoEmpRetirementSysPages = []
 requiredSuppInfoVolEmpBenePages = []
 requiredSuppInfoMunicipalEmpRetSysPages = []
 
-#if there is next, then get (else return current) --UNUSED
-def getNext(index, fullPagetext):
-    if((index+1) < range(fullPagetext)):
-        return fullPagetext[index+1]
-    else:
-        return fullPagetext[index]
 
 #write to CSV func, manipulates with the dataframe
 #Usage Example: fillDF(FINAL_PAGE_DATA, ['Date', 'Subheader'])..
@@ -102,7 +96,7 @@ def file_parse(file):
         pages = pdf.pages
         FINAL_PAGE_DATA = []
         for i, page in enumerate(pdf.pages):
-            if i == statementOfNetPositionPages[0]:
+            if len(statementOfNetPositionPages) > 1 and i == statementOfNetPositionPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER', 'GOV_ACTIVITIES', 'BUS_ACTIVITY', 'TOTAL']
@@ -523,8 +517,8 @@ def file_parse(file):
                                 FINAL_PAGE_DATA.append(dfLine(date, county, header, pageHeader, row[len(row) - 4], row[len(row) - 3], row[len(row) - 2]))
                     lineIndex+=1   
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 49----------------------\n\n\n")
-            elif i == statementOfActivitiesPages[0]:
+                print("---------------------DONE PAGE Statement of Net Position----------------------\n\n\n")
+            elif len(statementOfActivitiesPages) > 1 and i == statementOfActivitiesPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER', 'EXPENSES', 'CHARGES_FOR_SERVICES', 'OPERATING GRANTS AND CONTRIBUTIONS', 'CAPITAL GRANTS AND CONTRIBUTIONS']
@@ -533,11 +527,6 @@ def file_parse(file):
                 statementOfActivitiesFilter = re.compile(r'Statement of Activities|statement of activities|STATEMENT OF ACTIVITIES')
                 #CHECK DATE FILTER --> NEXT STEP
                 dateFilter = re.compile(r'[a-zA-Z]+\s\d\d[,]\s\d\d\d\d')
-                #--------------------------------------UNUSED(approach not found yet)-----------------------------------
-                # expensesFilter = re.compile(r'Expenses|EXPENSES|expenses')
-                # chargesForServicesFilter = re.compile(r'(Charges for)(Services)|(Charges)(for Services)|(Charges)(for)(Services)')
-                # operatingGrantsAndContributionsFilter = re.compile(r'(Operating)(Grants and)(Contributions)|(Operating Grants)(and Contributions)|(Operating Grants)(and)(Contributions)')
-                # capitalGrantsAndContributionsFilter = re.compile(r'(Capital)(Grants and)(Contributions)|(Capital Grants)(and Contributions)|(Capital)(Grants)(and Contributions)|(Capital)(Grants)(and)(Contributions)')
                 
                 #--------------------------------------------------DATA FILLER LINE-------------------------------------------------------------------
                 dfLine = namedtuple('dfLine', 'date county header pageheader expenses chargesForServices operatingGrantsAndContributions capitalGrantsAndContributions')
@@ -687,8 +676,8 @@ def file_parse(file):
                     lineIndex+=1 
                 #end of while loop iteration of page
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 50----------------------\n\n\n")
-            elif i == statementOfActivitiesPages[1]: 
+                print("---------------------DONE PAGE Statement of Activities 1----------------------\n\n\n")
+            elif len(statementOfActivitiesPages) > 1 and i == statementOfActivitiesPages[1]: 
                 text = page.extract_text()
                 FINAL_PAGE_DATA.clear()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER', 'GOV_ACTIVITIES', 'BUS_ACTIVITY', 'TOTAL']
@@ -698,15 +687,7 @@ def file_parse(file):
                 statementOfActivities = re.compile(r'Statement of Activities|statement of activities|STATEMENT OF ACTIVITIES')
                 #Filter date
                 dateFilter = re.compile(r'[a-zA-Z]+\s\d\d[,]\s\d\d\d\d')
-                #------------------------------------------------------------------HEADER FILTERS (UNUSED)------------------------------------------------------
-                #Filter governmental activities
-                govActivityFilter = re.compile(r'(Governmental) (Activities)')
-                #Filter Business-type activities
-                busActivityFilter = re.compile(r'(Business-type) (Activities)')
-                #Filter Total
-                totalFilter = re.compile(r'Total')
-                #Filter Component Units
-                componentUnitFilter = re.compile(r'(Component) (Units)')
+
                 county  = ''
                 header = ''
                 date = ''
@@ -861,9 +842,9 @@ def file_parse(file):
                     #Move to the next line
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 51----------------------\n\n\n")
+                print("---------------------DONE PAGE Statement of Activities 2----------------------\n\n\n")
 
-            elif i == balanceSheetPages[0]:
+            elif len(balanceSheetPages) > 1 and i == balanceSheetPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 
@@ -1973,9 +1954,9 @@ def file_parse(file):
                         lineIndex+=1
                 print(FINAL_PAGE_DATA)
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 52 & 53 (2 PAGE EXTENDED DATA)----------------------\n\n\n") 
+                print("---------------------DONE PAGE Balance Sheet - Governmental Funds----------------------\n\n\n") 
 
-            elif i == statementOfRevsExFundBalancesPages[0]:
+            elif len(statementOfRevsExFundBalancesPages) > 1 and i == statementOfRevsExFundBalancesPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 
@@ -3192,7 +3173,7 @@ def file_parse(file):
                 fillDF(FINAL_PAGE_DATA, headerlist)
                 print("---------------------PAGE 56 & 57 (EXTENDED to 2 pages) DONE------------------------------")
 
-            elif i == statementOfNetPositionPages[1]:
+            elif len(statementOfNetPositionPages) > 1 and i == statementOfNetPositionPages[1]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER','Business-type Activities - Enterprise Funds - TOTAL']
@@ -3201,11 +3182,6 @@ def file_parse(file):
                 proprietaryFundsSplit = re.compile(r'Proprietary Funds$')
                 statementOfNetPositionFilter = re.compile(r'Statement of Net Position|statement of net position|STATEMENT OF NET POSITION')
                 dateFilter = re.compile(r'[a-zA-Z]+\s\d\d[,]\s\d\d\d\d')
-                #--------------------------------------UNUSED(approach not found yet)-----------------------------------
-                # expensesFilter = re.compile(r'Expenses|EXPENSES|expenses')
-                # chargesForServicesFilter = re.compile(r'(Charges for)(Services)|(Charges)(for Services)|(Charges)(for)(Services)')
-                # operatingGrantsAndContributionsFilter = re.compile(r'(Operating)(Grants and)(Contributions)|(Operating Grants)(and Contributions)|(Operating Grants)(and)(Contributions)')
-                # capitalGrantsAndContributionsFilter = re.compile(r'(Capital)(Grants and)(Contributions)|(Capital Grants)(and Contributions)|(Capital)(Grants)(and Contributions)|(Capital)(Grants)(and)(Contributions)')
                 
                 #--------------------------------------------------DATA FILLER LINE-------------------------------------------------------------------
                 dfLine = namedtuple('dfLine', 'date county header pageheader totalData')
@@ -3584,8 +3560,8 @@ def file_parse(file):
                                 FINAL_PAGE_DATA.append(dfLine(date, county, header, pageHeader, row[len(row) - 2]))
                     lineIndex+=1
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 66----------------------\n\n\n")
-            elif i == statementOfRevExFundNetPositionPages[0]:
+                print("---------------------DONE PAGE Statement of Net Position----------------------\n\n\n")
+            elif len(statementOfRevExFundNetPositionPages) > 1 and i == statementOfRevExFundNetPositionPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER','Business-type Activities - Enterprise Funds - TOTAL']
@@ -3594,11 +3570,6 @@ def file_parse(file):
                 proprietaryFundsSplit = re.compile(r'Proprietary Funds$')
                 statementOfNetPositionFilter = re.compile(r'Statement of Revenues, Expenses and Changes in Fund Net Position|statement of revenues, expenses and changes in fund net position|STATEMENT OF REVENUES, EXPENSES AND CHANGES IN FUND NET POSITION')
                 dateFilter = re.compile(r'[a-zA-Z]+\s\d\d[,]\s\d\d\d\d')
-                #--------------------------------------UNUSED(approach not found yet)-----------------------------------
-                # expensesFilter = re.compile(r'Expenses|EXPENSES|expenses')
-                # chargesForServicesFilter = re.compile(r'(Charges for)(Services)|(Charges)(for Services)|(Charges)(for)(Services)')
-                # operatingGrantsAndContributionsFilter = re.compile(r'(Operating)(Grants and)(Contributions)|(Operating Grants)(and Contributions)|(Operating Grants)(and)(Contributions)')
-                # capitalGrantsAndContributionsFilter = re.compile(r'(Capital)(Grants and)(Contributions)|(Capital Grants)(and Contributions)|(Capital)(Grants)(and Contributions)|(Capital)(Grants)(and)(Contributions)')
                 
                 #--------------------------------------------------DATA FILLER LINE-------------------------------------------------------------------
                 dfLine = namedtuple('dfLine', 'date county header pageheader totalData')
@@ -3769,9 +3740,9 @@ def file_parse(file):
                                 FINAL_PAGE_DATA.append(dfLine(date, county, header, pageHeader, row[len(row) - 2]))
                     lineIndex+=1
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 67----------------------\n\n\n")
+                print("---------------------DONE PAGE Statement of Revenues, Expenses and Changes in Fund Net Position----------------------\n\n\n")
             #Page 149 because index starts from 0
-            elif i == requiredSuppInfoEmpRetirementSysPages[0]:
+            elif len(requiredSuppInfoEmpRetirementSysPages) > 1 and i == requiredSuppInfoEmpRetirementSysPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER']
@@ -3963,9 +3934,9 @@ def file_parse(file):
                                 print(FINAL_PAGE_DATA)
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 149----------------------\n\n\n")
+                print("---------------------DONE PAGE Employees' Retirement System1----------------------\n\n\n")
             #Page 150 because index starts from 0
-            elif i == requiredSuppInfoEmpRetirementSysPages[1]:
+            elif len(requiredSuppInfoEmpRetirementSysPages) > 1 and i == requiredSuppInfoEmpRetirementSysPages[1]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER']
@@ -4061,9 +4032,9 @@ def file_parse(file):
                                     print(FINAL_PAGE_DATA)
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 150----------------------\n\n\n")
+                print("---------------------DONE PAGE Employees' Retirement System2----------------------\n\n\n")
             #Page 152 because index starts from 0
-            elif i == requiredSuppInfoVolEmpBenePages[0]:
+            elif len(requiredSuppInfoVolEmpBenePages) > 1 and i == requiredSuppInfoVolEmpBenePages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER']
@@ -4254,9 +4225,9 @@ def file_parse(file):
                                 print(FINAL_PAGE_DATA)
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 152----------------------\n\n\n")
+                print("---------------------DONE PAGE Voluntary Employees' Beneficiary Association1----------------------\n\n\n")
             #Page 153 because index starts from 0
-            elif i == requiredSuppInfoVolEmpBenePages[1]:
+            elif len(requiredSuppInfoVolEmpBenePages) > 1 and i == requiredSuppInfoVolEmpBenePages[1]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER']
@@ -4351,9 +4322,9 @@ def file_parse(file):
                                     print(FINAL_PAGE_DATA)
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 153----------------------\n\n\n")
+                print("---------------------DONE PAGE Voluntary Employees' Beneficiary Association2----------------------\n\n\n")
             #Page 155 because index starts from 0
-            elif i == requiredSuppInfoMunicipalEmpRetSysPages[0]:
+            elif len(requiredSuppInfoMunicipalEmpRetSysPages) > 1 and i == requiredSuppInfoMunicipalEmpRetSysPages[0]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
 
@@ -4510,9 +4481,9 @@ def file_parse(file):
                                 print(FINAL_PAGE_DATA)
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 155----------------------\n\n\n")
+                print("---------------------DONE PAGE Municipal Employees' Retirement System of Michigan1----------------------\n\n\n")
             #Page 156 because index starts from 0
-            elif i == requiredSuppInfoMunicipalEmpRetSysPages[1]:
+            elif len(requiredSuppInfoMunicipalEmpRetSysPages) > 1 and i == requiredSuppInfoMunicipalEmpRetSysPages[1]:
                 FINAL_PAGE_DATA.clear()
                 text = page.extract_text()
                 headerlist = ['DATE', 'COUNTY', 'PAGE_HEADER', 'SUB_DATA_HEADER']
@@ -4603,7 +4574,7 @@ def file_parse(file):
                                     print(FINAL_PAGE_DATA)
                     lineIndex+=1 
                 fillDF(FINAL_PAGE_DATA, headerlist)
-                print("---------------------DONE PAGE 156----------------------\n\n\n") 
+                print("---------------------DONE PAGE Municipal Employees' Retirement System of Michigan2----------------------\n\n\n") 
     #Convert when while loop is done (outside of while loop)
     csvPath = conv_to_csv()
     return csvPath
