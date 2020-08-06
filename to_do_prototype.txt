@@ -1,0 +1,7 @@
+- Make a document for challanges faced throughout this, issues i overcame!
+- Software in terms of scalability
+- Addition to challanges to scalability an overall idea on what would this take to move to a state wide program.
+- What changes may need to be made?
+
+Run this one through our code.
+ https://www.mijackson.org/ArchiveCenter/ViewFile/Item/687
